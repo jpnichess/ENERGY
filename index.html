@@ -130,7 +130,7 @@
   }
 
   function calculoCusto() {
-    const consumo = parseFloat(document.getElementById("consumo2").value) || 0;
+    const consumo = parseFloat(document.getElementById("consumo2").value);
     const custo = consumo * 0.72;
 
     document.getElementById("resultado2").textContent = 
@@ -138,8 +138,8 @@
   }
 
   function calculoMensal() {
-    const consumoDiario = parseFloat(document.getElementById("consumo3").value) || 0;
-    const dias = parseFloat(document.getElementById("dias3").value) || 0;
+    const consumoDiario = parseFloat(document.getElementById("consumo3").value);
+    const dias = parseFloat(document.getElementById("dias3").value);
     const mensal = consumoDiario * dias;
 
     document.getElementById("resultado3").textContent = 
