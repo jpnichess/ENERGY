@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="src/styles/styles.css" />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <title>ENERGY +</title>
+  </head>
+  
+    <body>
+    <header>
+      <nav id="navbar">
+        <i class="fa-solid fa-lightbulb" id="nav_logo"> Energy +</i>
+      </nav>
+    </header>
+
+    <main class="content">
+      <section id="home">
+        <div class="shape"></div>
+        <div id="cta">
+          <h1 class="title">
+            Calcule o gasto energético
+            <span>na palma da sua mão</span>
+          </h1>
+
+          <p class="description">
+            Calcule o consumo dos seus aparelhos e explore formas simples de
+            automatizar seu ambiente. Fácil de usar e feito pra quem quer
+            economia e eficiência no dia a dia. <br> Interessado em automatizar sua empresa? <br><span>Entre em contato por nossas Redes:</span>
+          </p>
+
+          <div id="cta_buttons">
+            
+          </div>
+
+          <div class="social-media-buttons">
+            <a href="https://www.instagram.com/jpniches/">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+
+            <a href="https://www.instagram.com/jpniches/">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a href="https://www.instagram.com/jpniches/">
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+          </div>
+        </div>
+
+        <div id="banner">
+          <img src="src/styles/images/Consumo.png" alt="" />
+        </div>
+    </section>
+    <div id="textalign">Cálculos de Consumo</div>
+    
+    <section id="calculos" class="calculos">
+
+    <div class="container">
+      <div class="card">
+        <div class="card-bolt">
+            <i class="fa-solid fa-bolt"></i></div>
+        <h2>Consumo (kWh)</h2>
+        <label for="equipamentos1">Equipamentos:</label>
+        <input type="number" id="equipamentos1" min="0" />
+
+        <label for="potencia1">Potência (W):</label>
+        <input type="number" id="potencia1" min="0" />
+
+        <label for="tempo1">Tempo (h):</label>
+        <input type="number" id="tempo1" min="0" />
+
+        <button onclick="calculoConsumo()" class="btn-default">Calcular</button>
+        <p id="resultado1"></p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="card">
+        <div class="card-bolt">
+            <i class="fa-solid fa-bolt"></i></div>
+        <h2>Custo Total (R$)</h2>
+        <label for="consumo2">Consumo (kWh):</label>
+        <input type="number" id="consumo2" min="0" />
+        <button onclick="calculoCusto()" class="btn-default">Calcular</button>
+        <p id="resultado2"></p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="card">
+        <div class="card-bolt">
+            <i class="fa-solid fa-bolt"></i></div>
+        <h2>Consumo Mensal (kWh)</h2>
+        <label for="consumo3">Consumo diário (kWh):</label>
+        <input type="number" id="consumo3" min="0" />
+        <label for="dias3">Dias:</label>
+        <input type="number" id="dias3" min="0" />
+        <button onclick="calculoMensal()" class="btn-default">Calcular</button>
+        <p id="resultado3"></p>
+      </div>
+    </div>
+
+  </section>
+
+<script>
+  function calculoConsumo() {
+    const equipamentos = parseFloat(document.getElementById("equipamentos1").value)
+    const potencia = parseFloat(document.getElementById("potencia1").value)
+    const tempo = parseFloat(document.getElementById("tempo1").value)
+    const consumo = (equipamentos * potencia * tempo) / 1000;
+
+    document.getElementById("resultado1").textContent = 
+      `Consumo total: ${consumo.toFixed(2)} kWh`;
+  }
+
+  function calculoCusto() {
+    const consumo = parseFloat(document.getElementById("consumo2").value) || 0;
+    const custo = consumo * 0.72;
+
+    document.getElementById("resultado2").textContent = 
+      `Custo total: R$ ${custo.toFixed(2)}`;
+  }
+
+  function calculoMensal() {
+    const consumoDiario = parseFloat(document.getElementById("consumo3").value) || 0;
+    const dias = parseFloat(document.getElementById("dias3").value) || 0;
+    const mensal = consumoDiario * dias;
+
+    document.getElementById("resultado3").textContent = 
+      `Consumo mensal: ${mensal.toFixed(2)} kWh`;
+  }
+</script>
+      </section>
+
+
+      <section id="testimonials">
+        <img src="src/styles/images/download.png" id="testimonial_chef" alt="" />
+
+        <div id="testimonials_content">
+          <h2 class="section-title">Avaliações</h2>
+          <h3 class="section-subtitle">O que os usuários falam sobre nós</h3>
+
+          <div id="feedbacks">
+            <div class="feedback">
+              <img src="src/styles/images/Screenshot_20250221_142357_WhatsApp.jpg" class="feedback-avatar" alt="" />
+
+              <div class="feedback-content">
+                <p>
+                  João
+                  <span>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </span>
+                </p>
+                <p>
+                  "O site é muito fácil de usar e me ajudou a controlar melhor meu consumo de energia. As dicas para economizar são ótimas!"
+                </p>
+              </div>
+            </div>
+
+            <div class="feedback">
+              <img src="src/styles/images/1000199125.jpg" class="feedback-avatar" alt="" />
+
+              <div class="feedback-content">
+                <p>
+                  Felipe
+                  <span>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </span>
+                </p>
+                <p>
+                  "Com o site, consegui identificar onde gasto mais energia e reduzir meus custos. Ferramenta simples e eficiente!"
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+    </main>
+
+    <footer>
+      <img src="src/images/wave.svg" alt="" />
+
+      <div id="footer_items">
+        <span id="copyright"> &copy 2025 ENERGY+ </span>
+
+        <div class="social-media-buttons">
+          <a href="https://www.instagram.com/jpniches/">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+
+          <a href="https://www.instagram.com/jpniches/">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+
+          <a href="https://www.instagram.com/jpniches/">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+    <script src="src/javascript/script.js"></script>
+  </body>
+</html>
